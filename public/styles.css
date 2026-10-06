@@ -1,0 +1,306 @@
+:root {
+    font-family: system-ui, sans-serif;
+    color: #e9edf9;
+    background: #111526;
+    color-scheme: dark
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0
+}
+
+button,
+input,
+textarea {
+    font: inherit
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #39415d;
+    border-radius: 10px;
+    background: #252c45;
+    color: inherit;
+    padding: 11px 16px
+}
+
+button:hover {
+    background: #36415f
+}
+
+button:disabled {
+    opacity: .45;
+    cursor: not-allowed
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #9ea8ff;
+    outline-offset: 3px
+}
+
+.primary {
+    background: #655bea
+}
+
+.danger {
+    background: #a6344f
+}
+
+.muted {
+    color: #aeb8d1
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 28px;
+    border-bottom: 1px solid #30364c;
+    gap: 16px
+}
+
+h1 {
+    font-size: 23px;
+    margin: 0
+}
+
+h2 {
+    font-size: 19px
+}
+
+small {
+    color: #aeb8d1
+}
+
+main {
+    padding: 24px;
+    max-width: 1500px;
+    margin: auto
+}
+
+.notice {
+    background: #242b46;
+    border: 1px solid #414c74;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 20px
+}
+
+.card {
+    background: #1a2035;
+    border: 1px solid #303952;
+    border-radius: 16px;
+    overflow: hidden
+}
+
+.card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #303952
+}
+
+.stage {
+    position: relative;
+    height: 390px;
+    background: #101421;
+    display: grid;
+    place-items: center
+}
+
+.stage video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain
+}
+
+.placeholder {
+    position: absolute;
+    text-align: center;
+    pointer-events: none
+}
+
+.avatar {
+    background: #655bea;
+    border-radius: 50%;
+    width: 86px;
+    height: 86px;
+    display: grid;
+    place-items: center;
+    font-size: 32px;
+    margin: auto
+}
+
+.label {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: #171c30e0;
+    border-radius: 8px;
+    padding: 7px 12px
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    padding: 18px;
+    flex-wrap: wrap
+}
+
+.tabs {
+    display: flex;
+    padding: 12px;
+    gap: 6px
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px 6px
+}
+
+.tabs button[aria-selected=true] {
+    background: #655bea
+}
+
+.panel {
+    padding: 16px
+}
+
+.hidden {
+    display: none !important
+}
+
+#messages {
+    height: 290px;
+    overflow: auto
+}
+
+.message {
+    background: #28304a;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere
+}
+
+.message p {
+    margin: 5px 0 0
+}
+
+.row {
+    display: flex;
+    gap: 8px
+}
+
+input[type=text] {
+    min-width: 0;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #414b6b;
+    background: #111729;
+    border-radius: 9px;
+    color: inherit
+}
+
+.file {
+    display: block;
+    color: #c5bdff;
+    padding: 12px 0;
+    overflow-wrap: anywhere
+}
+
+.whiteboard {
+    margin-top: 20px
+}
+
+.tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 14px 20px
+}
+
+.tools label {
+    display: flex;
+    align-items: center;
+    gap: 7px
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: white;
+    touch-action: none;
+    cursor: crosshair
+}
+
+.intro {
+    max-width: 570px;
+    margin: 45px auto;
+    padding: 30px
+}
+
+.intro p {
+    line-height: 1.6
+}
+
+.intro label {
+    display: block;
+    margin: 15px 0 7px
+}
+
+.intro button {
+    width: 100%;
+    margin-top: 20px
+}
+
+#status {
+    min-height: 24px;
+    color: #d2caff;
+    padding: 0 20px 14px
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #aeb8d1;
+    font-size: 13px
+}
+
+@media(max-width:900px) {
+    .layout {
+        grid-template-columns: 1fr
+    }
+
+    .stage {
+        height: 300px
+    }
+
+    header {
+        padding: 16px
+    }
+
+    main {
+        padding: 14px
+    }
+
+    .card-head {
+        gap: 10px;
+        flex-wrap: wrap
+    }
+}

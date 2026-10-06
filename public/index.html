@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MeetSpace — Collaboration workspace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>◈ MeetSpace</h1><small>Video & collaboration • Frontend prototype</small>
+    </header>
+    <main>
+        <section id="welcome" class="card intro">
+            <small>YOUR COLLABORATION WORKSPACE</small>
+            <h2>Make space for your next idea.</h2>
+            <p class="muted">Try a local camera preview, screen sharing, chat, files, and a drawing board. This
+                prototype runs on your device; it does not connect other participants.</p>
+            <form id="joinForm"><label for="displayName">Your display name</label><input id="displayName" type="text"
+                    maxlength="40" required placeholder="e.g. Danu"><label for="roomName">Meeting name</label><input
+                    id="roomName" type="text" maxlength="80" required value="Project planning"><button
+                    class="primary">Enter workspace</button></form>
+        </section>
+        <section id="workspace" class="hidden">
+            <div class="notice">Local demo: chat, files, and drawings stay in this tab. Authentication, multi-user
+                calls, synchronization, and server security are not implemented.</div>
+            <div class="layout">
+                <section class="card">
+                    <div class="card-head">
+                        <div>
+                            <h2 id="meetingTitle">Project planning</h2><small>1 participant • Local preview</small>
+                        </div><span id="timer">00:00</span>
+                    </div>
+                    <div class="stage"><video id="preview" autoplay muted playsinline></video>
+                        <div id="placeholder" class="placeholder">
+                            <div class="avatar" id="initial">D</div>
+                            <p>Camera is off</p>
+                        </div><span class="label" id="selfLabel">You</span>
+                    </div>
+                    <div class="controls"><button id="camera">Start camera</button><button id="mic" disabled>Mute
+                            mic</button><button id="screen">Share screen</button><button id="boardToggle"
+                            aria-expanded="true">Hide board</button><button id="leave" class="danger">Leave</button>
+                    </div>
+                    <div id="status" role="status" aria-live="polite">Ready. Camera access starts only when requested.
+                    </div>
+                </section>
+                <aside class="card">
+                    <div class="tabs" role="tablist" aria-label="Collaboration panels"><button id="chatTab" role="tab"
+                            aria-selected="true" aria-controls="chatPanel" data-panel="chatPanel">Chat</button><button
+                            id="filesTab" role="tab" aria-selected="false" aria-controls="filesPanel"
+                            data-panel="filesPanel">Files</button><button id="peopleTab" role="tab"
+                            aria-selected="false" aria-controls="peoplePanel" data-panel="peoplePanel">People</button>
+                    </div>
+                    <div id="chatPanel" class="panel" role="tabpanel" aria-labelledby="chatTab">
+                        <div id="messages" role="log" aria-live="polite">
+                            <p class="muted">Your local messages appear here.</p>
+                        </div>
+                        <form id="chatForm" class="row"><input id="messageInput" type="text" maxlength="2000"
+                                aria-label="Message" placeholder="Write a message…" required><button
+                                class="primary">Send</button></form>
+                    </div>
+                    <div id="filesPanel" class="panel hidden" role="tabpanel" aria-labelledby="filesTab">
+                        <h2>Meeting files</h2>
+                        <p class="muted">Select a file to create a local download link. No file is uploaded or shared.
+                        </p><label for="fileInput">Choose files (maximum 10 MB each)</label><input id="fileInput"
+                            type="file" multiple>
+                        <div id="fileList"></div>
+                    </div>
+                    <div id="peoplePanel" class="panel hidden" role="tabpanel" aria-labelledby="peopleTab">
+                        <h2>Participants</h2>
+                        <p id="person"></p>
+                        <p class="muted">Other participants require a real-time backend.</p>
+                    </div>
+                </aside>
+            </div>
+            <section id="board" class="card whiteboard">
+                <div class="card-head">
+                    <h2>Shared whiteboard <small>— local demo</small></h2><button id="saveBoard">Download
+                        drawing</button>
+                </div>
+                <div class="tools"><label>Color <input id="color" type="color" value="#655bea"></label><label>Size
+                        <input id="size" type="range" min="1" max="20" value="4"></label><button id="eraser"
+                        aria-pressed="false">Eraser: off</button><button id="clearBoard">Clear board</button></div>
+                <canvas id="canvas" width="1200" height="520"
+                    aria-label="Drawing canvas. Use a mouse, stylus, or touch to draw."></canvas>
+            </section>
+        </section>
+    </main>
+    <footer>MeetSpace • HTML, CSS & JavaScript • No external dependencies</footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
